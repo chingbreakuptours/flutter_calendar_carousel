@@ -663,7 +663,7 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
     if (widget.maxSelectedDate != null &&
         picked.millisecondsSinceEpoch >
             widget.maxSelectedDate.millisecondsSinceEpoch) return;
-    if (widget.inactiveDays != null && widget.inactiveDays.contains(now)) 
+    if (widget.inactiveDays != null && widget.inactiveDays.contains(picked)) 
         return;
     setState(() {
       _isReloadSelectedDate = false;
