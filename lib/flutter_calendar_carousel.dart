@@ -356,7 +356,7 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
                       now.millisecondsSinceEpoch >
                           widget.maxSelectedDate.millisecondsSinceEpoch)
                     isSelectable = false;
-                  else if (widget.inactiveDays != null && widget.inactiveDays.contains(now)) 
+                  else if (widget.inactiveDays != null) 
                     isSelectable = false;
                   return Container(
                     margin: EdgeInsets.all(widget.dayPadding),
