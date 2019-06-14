@@ -133,6 +133,7 @@ class CalendarCarousel<T> extends StatefulWidget {
     this.firstDayOfWeek,
     this.minSelectedDate,
     this.maxSelectedDate,
+    this.inactiveDays,
     this.inactiveDaysTextStyle,
     this.inactiveWeekendTextStyle,
     this.headerTitleTouchable = false,
@@ -355,7 +356,7 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
                       now.millisecondsSinceEpoch >
                           widget.maxSelectedDate.millisecondsSinceEpoch)
                     isSelectable = false;
-                  else if (widget.inactiveDays.contains(now.day)) 
+                  else if (widget.inactiveDays != null && widget.inactiveDays.contains(now.day)) 
                     isSelectable = false;
                   return Container(
                     margin: EdgeInsets.all(widget.dayPadding),
