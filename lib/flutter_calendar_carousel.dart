@@ -356,7 +356,7 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
                       now.millisecondsSinceEpoch >
                           widget.maxSelectedDate.millisecondsSinceEpoch)
                     isSelectable = false;
-                  else if (widget.inactiveDays != null) 
+                  else if (widget.inactiveDays != null && widget.inactiveDays.contains(now)) 
                     isSelectable = false;
                   return Container(
                     margin: EdgeInsets.all(widget.dayPadding),
@@ -547,6 +547,8 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
                         now.millisecondsSinceEpoch >
                             widget.maxSelectedDate.millisecondsSinceEpoch)
                       isSelectable = false;
+                    else if (widget.inactiveDays != null && widget.inactiveDays.contains(now)) 
+                      isSelectable = false;
                     return Container(
                       margin: EdgeInsets.all(widget.dayPadding),
                       child: FlatButton(
@@ -653,6 +655,7 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
   }
 
   void _onDayPressed(DateTime picked) {
+    print(picked);
     if (picked == null) return;
     if (widget.minSelectedDate != null &&
         picked.millisecondsSinceEpoch <
@@ -660,7 +663,8 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
     if (widget.maxSelectedDate != null &&
         picked.millisecondsSinceEpoch >
             widget.maxSelectedDate.millisecondsSinceEpoch) return;
-
+    if (widget.inactiveDays != null && widget.inactiveDays.contains(now)) 
+        return;
     setState(() {
       _isReloadSelectedDate = false;
       _selectedDate = picked;
