@@ -138,7 +138,7 @@ class CalendarCarousel<T> extends StatefulWidget {
     this.inactiveWeekendTextStyle,
     this.headerTitleTouchable = false,
     this.onHeaderTitlePressed,
-    this.weekDayFormat = WeekdayFormat.short,
+    this.weekDayFormat = WeekdayFormat.standalone,
     this.staticSixWeekFormat = false,
     this.isScrollable = true,
     this.showOnlyCurrentMonthDate = false,
@@ -655,7 +655,6 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
   }
 
   void _onDayPressed(DateTime picked) {
-    print(picked);
     if (picked == null) return;
     if (widget.minSelectedDate != null &&
         picked.millisecondsSinceEpoch <
