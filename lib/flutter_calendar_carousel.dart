@@ -138,7 +138,7 @@ class CalendarCarousel<T> extends StatefulWidget {
     this.inactiveWeekendTextStyle,
     this.headerTitleTouchable = false,
     this.onHeaderTitlePressed,
-    this.weekDayFormat = WeekdayFormat.standaloneShort,
+    this.weekDayFormat = WeekdayFormat.standaloneNarrow,
     this.staticSixWeekFormat = false,
     this.isScrollable = true,
     this.showOnlyCurrentMonthDate = false,
